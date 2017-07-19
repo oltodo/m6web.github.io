@@ -9,7 +9,8 @@
     "gatsby-plugin-react-helmet": "^1.0.1"
   },
   "devDependencies": {
-    "gh-pages": "^0.12.0"
+    "gh-pages": "^0.12.0",
+    "prettier": "^1.5.3"
   },
   "keywords": [
     "gatsby"
@@ -20,7 +21,7 @@
     "build": "gatsby build",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "develop": "gatsby develop",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"pages/*.js\" \"utils/*.js\" \"wrappers/*.js\" \"html.js\"",
+    "format": "prettier --write gatsby-config.js \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
