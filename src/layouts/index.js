@@ -23,42 +23,7 @@ export default class Template extends React.Component {
           ]}
         />
         <ThemeProvider theme={theme}>
-          <div
-            style={{
-              background: `rebeccapurple`,
-              marginBottom: `1.45rem`
-            }}
-          >
-            <div
-              style={{
-                margin: `0 auto`,
-                maxWidth: 960,
-                padding: `1.45rem 1.0875rem`
-              }}
-            >
-              <h1 style={{ margin: 0 }}>
-                <Link
-                  to="/"
-                  style={{
-                    color: "white",
-                    textDecoration: "none"
-                  }}
-                >
-                  Gatsby
-                </Link>
-              </h1>
-            </div>
-          </div>
-          <div
-            style={{
-              margin: `0 auto`,
-              maxWidth: 960,
-              padding: `0px 1.0875rem 1.45rem`,
-              paddingTop: 0
-            }}
-          >
             {this.props.children()}
-          </div>
         </ThemeProvider>
       </div>
     );
