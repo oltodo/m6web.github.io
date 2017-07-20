@@ -1,0 +1,49 @@
+---
+path: /firewall-applicatif-php-et-bundle-symfony
+title: Firewall applicatif PHP et bundle Symfony
+description: ''
+date: '2013-05-30T00:00:00+02:00'
+tags:
+  - outil
+  - php
+  - symfony
+  - open-source
+image: football.png
+imageCredit: 'http://www.flickr.com/photos/23959858@N03'
+imageCreditLink: ~
+authors:
+  - name: Team Cytron
+    avatar: cytron.png
+    email: ~
+    twitter: techM6Web
+    facebook: ~
+    github: ~
+lang: fr
+---
+
+Nous publions aujourd'hui notre firewall applicatif sur notre [compte GitHub](https://github.com/M6Web). Il se compose :
+
+- d'un [composant PHP](https://github.com/M6Web/Firewall) (5.4+) gérant les IPs (V4 et V6), plages, wildcards, white/black lists, etc.
+- d'un [bundle Symfony](https://github.com/M6Web/FirewallBundle) permettant d'utiliser le composant [Firewall](https://github.com/M6Web/Firewall) dans les controllers à l'aide des annotations et de retourner une réponse HTTP personnalisée.
+
+Ils utilisent tous les deux [Composer](http://getcomposer.org/) et sont [disponibles sur Packagist](https://packagist.org/packages/m6web/).
+
+#### Qu’est ce qu’un Firewall applicatif ?
+
+Un Firewall applicatif permet de restreindre l’accès de certaines IPs à certaines parties d'une application. Vous pouvez par exemple définir la liste des IPs autorisées dans la section d’administration ou au contraire celles que vous souhaitez bloquer dans un forum.
+
+#### Pourquoi cette implémentation ?
+
+Nous souhaitions éviter de redéfinir l’ensemble des IPs chaque point de restriction. Nous avons donc cherché centraliser la configuration. Le [FirewallBundle](https://github.com/M6Web/FirewallBundle) permet de mettre en place des listes hiérarchisées ainsi que des configurations prédéfinies que nous pouvons réutiliser et adapter chaque besoin.
+
+#### Comment contribuer ?
+
+Si notre firewall applicatif répond certaines de vos problématiques, mais que vous souhaitez le voir évoluer, n'hésitez pas participer son développement :
+
+- forkez les projets sur [GitHub](https://github.com/m6web),
+- faites une branche par fonctionnalité,
+- proposez-nous vos évolutions et optimisations via les [Pull Requests](https://github.com/blog/712-pull-requests-2-0).
+
+Vous pouvez également nous remonter les problèmes rencontrés lors de son utilisation dans les [issues du composant](https://github.com/M6Web/Firewall/issues) ou les [issues du bundle](https://github.com/M6Web/FirewallBundle/issues).
+
+Enfin, n'hésitez pas utiliser les commentaires de cet article pour nous faire part de vos réactions.
