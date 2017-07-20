@@ -1,6 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import favicon from "./images/favicon.ico";
+import favicon16 from "./images/favicon-16x16.png";
+import favicon32 from "./images/favicon-32x32.png";
+
 const BUILD_TIME = new Date().getTime();
 
 export default class HTML extends React.Component {
@@ -30,6 +34,11 @@ export default class HTML extends React.Component {
             content="width=device-width, initial-scale=1.0"
           />
           {this.props.headComponents}
+
+          <link rel="shortcut icon" href={favicon} />
+          <link rel="icon" type="image/png" sizes="32x32" href={favicon32} />
+          <link rel="icon" type="image/png" sizes="16x16" href={favicon16} />
+
           {css}
         </head>
         <body>
