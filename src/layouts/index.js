@@ -5,7 +5,10 @@ import Helmet from "react-helmet";
 import { ThemeProvider } from "styled-components";
 import theme from "../theme";
 
-import "../css/typography.css";
+import Header from "../components/Header";
+
+import "../css/reset.css";
+import "../css/base.css";
 
 export default class Template extends React.Component {
   static propTypes = {
@@ -14,18 +17,19 @@ export default class Template extends React.Component {
 
   render() {
     return (
-      <div>
-        <Helmet
-          title="Gatsby Default Starter"
-          meta={[
-            { name: "description", content: "Sample" },
-            { name: "keywords", content: "sample, something" }
-          ]}
-        />
-        <ThemeProvider theme={theme}>
-            {this.props.children()}
-        </ThemeProvider>
-      </div>
+      <ThemeProvider theme={theme}>
+        <div>
+          <Helmet
+            title="M6 WEB TECH"
+            meta={[
+              { name: "description", content: "Sample" },
+              { name: "keywords", content: "sample, something" }
+            ]}
+          />
+          <Header />
+          {this.props.children()}
+        </div>
+      </ThemeProvider>
     );
   }
 }

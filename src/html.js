@@ -33,13 +33,19 @@ export default class HTML extends React.Component {
             name="viewport"
             content="width=device-width, initial-scale=1.0"
           />
-          {this.props.headComponents}
 
           <link rel="shortcut icon" href={favicon} />
           <link rel="icon" type="image/png" sizes="32x32" href={favicon32} />
           <link rel="icon" type="image/png" sizes="16x16" href={favicon16} />
 
+          <link
+            href="https://fonts.googleapis.com/css?family=Roboto:400,700,900"
+            rel="stylesheet"
+          />
+
           {css}
+          {this.props.headComponents}
+          {this.props.styles}
         </head>
         <body>
           <div
