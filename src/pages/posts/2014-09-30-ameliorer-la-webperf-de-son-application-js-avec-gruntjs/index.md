@@ -41,7 +41,7 @@ P.S : Je passe volontairement l’[installation/initialisation de Grunt](http://
 Afin de gagner quelques octets, nous allons minifier (suppression des espaces, retours charriot, et commentaires HTML) notre code HTML généré.
 Pour ceci, nous utilisons le plugin [grunt-contrib-htmlmin](https://github.com/gruntjs/grunt-contrib-htmlmin).
 
-{% highlight js %}
+```js
 options: {
         collapseWhitespace: true,
         collapseBooleanAttributes: true,
@@ -49,7 +49,7 @@ options: {
         removeOptionalTags: true,
         removeComments: true
       }
-{% endhighlight %}
+```
 
 ### Minification CSS
 
@@ -72,12 +72,12 @@ Il est important de se concentrer uniquement sur les images « d’interface »,
 
 Dans notre CSS principale, on pourra ensuite mettre cette image en background d’une classe CSS :
 
-{% highlight css %}
+```css
 .faceless {
   background-image: @facelessImg;
 }
-{% endhighlight %}
- 
+```
+
 Et dans notre code HTML, on pourra placer l’image de la manière suivante :
 `<span class="faceless"></span>`
 
@@ -96,15 +96,15 @@ Directement dans le code HTML, toujours avec le plugin [grunt-usemin](https://gi
 La bonne pratique est d’avoir un fichier app.js avec son code maison, un fichier vendor.js avec les librairies tierces, et potentiellement un fichier de config.js
 Etant donné que dans notre cas, 99% du poids Js est concentré dans "Vendor", nous avons décidé de concaténer l’ensemble dans un seul fichier.
 
-{% highlight html %}
+```html
 <!-- build:js(.tmp) scripts/risingstar.js -->
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="config.js"></script>
-  <script src="app.js"></script> 
+  <script src="app.js"></script>
 ….
-<!-- endbuild —>
-{% endhighlight %}
+<!-- endbuild -->
+```
 
 
 ### Inlining des templates
@@ -113,9 +113,9 @@ Pour finir, vous aurez peut-être remarqué, si vous développez des SPA avec An
 Cela ne pose pas de problème en temps normal, mais dans notre cas, cela ne respecte pas nos ambitions de départ.
 
 Angular a la particularité de permettre d’utiliser la balise script pour charger des templates :
-{% highlight html %}
+```html
 <script type="text/ng-template" id="views/info.html">Code HTML du template</script>
-{% endhighlight %}
+```
 
 Si votre routeur ou une directive demande un template, avant de vérifier si le fichier existe, Angular vérifiera si une balise `<script type=’text/ng-template’>` a été déclarée avec l’identifiant correspondant au chemin demandé.
 

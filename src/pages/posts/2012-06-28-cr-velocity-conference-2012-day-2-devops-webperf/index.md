@@ -28,7 +28,6 @@ Compte rendu des tracks DevOps/WebPerf de cette deuxième journée de cette Vél
 La matinée offrait un track unique dans une salle gigantesque.
 
 ![CR Velocity Conference 2012 : Day 2 (DevOps/WebPerf)](./velocityus2012-day2.jpg)
-
 Vidéo d'intro à la Vélocity !
 
  <iframe allowfullscreen="" frameborder="0" height="360" src="http://www.youtube.com/embed/Vxq9yj2pVWk?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
@@ -150,7 +149,7 @@ La conférence n'étant pas disponible en vidéo, vous pouvez déjécouter Jason
 
 
 <iframe allowfullscreen="" frameborder="0" height="360" src="http://www.youtube.com/embed/jsAVpYJMGIc?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
-Jason Grigsby interview la Vélocity Conf 2012
+<br />Jason Grigsby interview la Vélocity Conf 2012
 
 #### [WebPerf] RUM for Breakfast - Distilling Insights From the Noise, par Buddy Brewer (LogNormal), Philip Tellis (LogNormal, Inc) & Carlos Bueno (Facebook)
 

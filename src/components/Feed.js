@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 import { generator } from "uigradients";
 import _ from "lodash";
+import Link from "gatsby-link";
 
 import { colors } from "../theme";
 
@@ -117,9 +118,11 @@ export default class Feed extends Component {
         <PostDate>
           {post.date}
         </PostDate>
-        <PostTitle big={highlighted}>
-          {post.title}
-        </PostTitle>
+        <Link to={post.path}>
+          <PostTitle big={highlighted}>
+            {post.title}
+          </PostTitle>
+        </Link>
         <PostTags>
           {post.authors.map(({ name }) =>
             <PostTag>

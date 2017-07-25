@@ -123,9 +123,7 @@ Concernant Google, la conférence par Tony Gentilcore (créateur de FasterFox po
 
 
 
-> Chrome for Android will be the default browser starting with Jelly Bean
-
- Tony Gentilcore
+> Chrome for Android will be the default browser starting with Jelly Bean — Tony Gentilcore
 
 
 Il a aussi parlé du fonctionnement de WebKit, du Compositor Thread, ainsi que du [Chrome Remote Debugging](http://wesbos.com/remote-debugging-mobile-chrome-android/)
@@ -159,7 +157,7 @@ Les slides ici : [http://www.slideshare.net/stoyan/social-button-bffs](http://ww
 
 
 
-> "Friends don't let friends do document.write" Stoyan Stefanov
+> Friends don't let friends do document.write — Stoyan Stefanov
 
 
 

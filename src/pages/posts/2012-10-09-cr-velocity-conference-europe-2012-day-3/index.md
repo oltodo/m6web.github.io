@@ -23,7 +23,6 @@ lang: fr
 ---
 
 ![CR Velocity Conférence Europe 2012 : Day 3](./0-00-30-83-201210-ob_df8e6a600183b00e13ed9ae49d68e1e1_allspaw-souders-jpg.jpg)
-
 Troisième et dernière journée la Vélocity Europe.
 
 On arrive déjà fatigué et gavé d'informations et idées en tout genre, mais on a hâte de démarrer cette journée ! :-)
@@ -43,7 +42,6 @@ Voir la vidéo ci-dessous vers 17min 30 :
 
 
 ![Ben Galbraith et Dion Almaer (Source : http://royal.pingdom.com/2012/10/05/report-from-velocity-europe-day-3/ )](./0-00-30-83-201210-ob_217722ac6f1101dfc98f3303ee4ee09b_walmart-jpg.jpg)
-
 Ben Galbraith et Dion Almaer (Source : http://royal.pingdom.com/2012/10/05/report-from-velocity-europe-day-3/ )
 
 

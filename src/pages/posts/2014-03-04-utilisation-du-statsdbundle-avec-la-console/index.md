@@ -43,7 +43,7 @@ La seconde solution a donc été de modifier le StatsdBundle et d'ajouter une co
 
 Ainsi, avec la configuration suivante :
 
-{% highlight yaml %}
+```yaml
 clients:
     event:
         console.exception:
@@ -51,6 +51,6 @@ clients:
             immediate_send: true
         m6kernel.exception:
             increment: mysite.errors.<status_code>
-{% endhighlight %}
+```
 
 L'incrément `mysite.command.<command.name>.exception` sera envoyé en temps réel, alors que les autres comme `mysite.errors.<status_code>` continueront à être envoyés pendant `kernel.terminate`.

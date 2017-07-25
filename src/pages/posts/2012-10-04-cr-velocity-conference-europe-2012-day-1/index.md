@@ -79,7 +79,6 @@ Les slides sont disponible ici et plutôt parlantes pour ceux qui voudraient cre
 
 
 ![Theo Schlossnagle (Source : http://img.ly/o0Ht )](./0-00-30-83-201210-ob_e5890eb4c00194f155cbb70dadf2df1e_large-jpg.jpg)
-
 Theo Schlossnagle (Source : http://img.ly/o0Ht )
 
 
@@ -136,7 +135,6 @@ Les slides sont disponibles ici : [http://www.slideshare.net/MeasureWorks/measur
 <iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="http://fr.slideshare.net/slideshow/embed_code/14559201?rel=0" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
 
 ![Jeroen Tjepkema (Source : https://twitter.com/pingdom/status/253135289327951872 )](./0-00-30-83-201210-ob_de570da1ddb751e35f1a96d2eadf7c9d_scaled-php.jpg)
-
 Jeroen Tjepkema (Source : https://twitter.com/pingdom/status/253135289327951872 )
 
 
@@ -175,7 +173,6 @@ Bref, superbe application de tous les concepts WebPerf avec des cas concrets d'�
 
 
 ![Patrick Meenan & Steve Souders (Source : https://twitter.com/simonox/status/253146271156670464 )](./0-00-30-83-201210-ob_b0e31f_233d81c80ca111e28d1322000a1cba90-7-jpg.jpg)
-
 Patrick Meenan & Steve Souders (Source : https://twitter.com/simonox/status/253146271156670464 )
 
 
@@ -188,7 +185,6 @@ Pour finir cette journée, rendez vous dans l'immense salle (dans laquelle aura 
 
 
 ![Salle King's Room (Source : https://twitter.com/cmsj/status/253139957093367808/photo/1 )](./0-00-30-83-201210-ob_89db26_a4nvcywcaaavwli-jpg-large.jpg)
-
 Salle King's Room (Source : https://twitter.com/cmsj/status/253139957093367808/photo/1 )
 
 
@@ -203,7 +199,6 @@ Voici par exemple un talk sympa sur les "Dataviz as interface" par [@makoto_inou
 <iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="http://fr.slideshare.net/slideshow/embed_code/14559951" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" width="427"></iframe>
 
 ![Makoto Inoue, de l'énergie, de la danse, et de la bière ! (Source: http://royal.pingdom.com/2012/10/02/velocity-europe-1/ )](./0-00-30-83-201210-ob_8823f9b6bfed28f4d280b3f4ca99689e_ignite-jpg.jpg)
-
 Makoto Inoue, de l'énergie, de la danse, et de la bière ! (Source: http://royal.pingdom.com/2012/10/02/velocity-europe-1/ )
 
 

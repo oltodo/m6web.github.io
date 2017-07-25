@@ -65,12 +65,8 @@ En attendant et pour la tester :
 
 Cette fonctionnalité permet, comme son nom l'indique, de montrer le chemin critique de votre page. Sur les quelques tests que j'ai pu effectués, c'est très efficace. On apprécie le détail au niveau du waterfall sur l'exécution des javascripts, l'affichage de "qui bloque quoi", ou le render css. A approfondir de toute urgence !
 
-
-
-<a href="http://www.flickr.com/photos/norby/7446201456/" title="Bryan McQuade de Norby, sur Flickr"><img src="http://farm9.staticflickr.com/8168/7446201456_b2cfe5aab5.jpg" width="400" height="500" alt="Bryan McQuade"></a>
-
-Bryan McQuade (Google)
-
+![Bryan McQuade de Norby, sur Flickr](http://farm9.staticflickr.com/8168/7446201456_b2cfe5aab5.jpg)
+Bryan McQuade (Google) — Crédit: [Flickr](http://www.flickr.com/photos/norby/7446201456/)
 
 <iframe allowfullscreen="" frameborder="0" height="360" src="http://www.youtube.com/embed/NTAi3ILOa1c?wmode=transparent&fs=1&feature=oembed" width="640"></iframe>
 La Lightning Démo de Page Speed ayant eu lieu le lendemain
@@ -109,7 +105,7 @@ Je vous invite tout de même à lire les slides :
 
 Ainsi qu'à tester la VM mise à disposition, car le travail derrière est conséquent, et peut correspondre à certains, ou peut au moins donner des idées pour d'autres : [http://t.co/uLv1fX1A](http://t.co/uLv1fX1A)
 
-**A retenir : **
+**A retenir :**
 
 A retenir aussi dans cette présentation, tout le bien qui a été dit de Graphite (même si je ne suis plus convaincre la dessus), et de quelques features pour lesquelles j'étais passée travers :
 
@@ -135,9 +131,8 @@ J'ai, comme une bonne partie de la salle, fait l'impasse rapidement : entre le s
 A revoir tête reposée : [http://velocityconf.com/velocity2012/public/schedule/detail/23615](http://velocityconf.com/velocity2012/public/schedule/detail/23615) (slides non dispo à l'heure actuelle)
 
 
-<a href="http://www.flickr.com/photos/norby/7446205242/" title="Teresa Dietrich and Derek Chang de Norby, sur Flickr"><img src="http://farm8.staticflickr.com/7256/7446205242_f5752167d7.jpg" width="500" height="333" alt="Teresa Dietrich and Derek Chang"></a>
-
-Teresa Dietrich (WebMD), Derek Chang (WebMD)
+![Teresa Dietrich and Derek Chang de Norby, sur Flickr](http://farm8.staticflickr.com/7256/7446205242_f5752167d7.jpg)
+Teresa Dietrich (WebMD), Derek Chang (WebMD) — Crédit [Flickr](http://www.flickr.com/photos/norby/7446205242/)
 
 
 

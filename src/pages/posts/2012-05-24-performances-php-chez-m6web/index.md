@@ -2,7 +2,7 @@
 path: /performances-php-chez-m6web
 title: Performances PHP chez M6Web
 description: ''
-date: '2012-05-24T00:00:00+02:00'
+date: '2012-05-24T01:00:00+02:00'
 tags:
   - graphite
   - monitoring
@@ -35,4 +35,5 @@ J’espère que certains points feront l’objet d’autres articles dans le fut
 
 
 **[Performances php chez M6Web](http://www.slideshare.net/kennydee/performances-php-chez-m6web "Performances php chez M6Web")**  
-<object height="355" id="__sse13060489" width="425"><param name="movie" value="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=performancephp-120524085541-phpapp02&stripped_title=performances-php-chez-m6web&userName=kennydee"></param><param name="allowFullScreen" value="true"></param><param name="allowScriptAccess" value="always"></param><param name="wmode" value="transparent"></param></object>
+
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/yVo9WrkKpqrlPP" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/kennydee/performances-php-chez-m6web" title="Performances php chez M6Web" target="_blank">Performances php chez M6Web</a> </strong> de <strong><a target="_blank" href="https://www.slideshare.net/kennydee">Kenny Dits</a></strong> </div>

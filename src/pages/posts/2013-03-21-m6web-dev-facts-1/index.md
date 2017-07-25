@@ -51,7 +51,7 @@ Du coup, nous avons décidé de profiter de cette période très calme sur le bl
 
 # Big or what ?
 
-> Il y a une librairie Rennes, elle est énorme! Tu y rentres, c'est tout petit... !
+> Il y a une librairie à Rennes, elle est énorme! Tu y rentres, c'est tout petit... !
 
 
 # Niveau CE2
