@@ -1,13 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
-import { ThemeProvider } from "styled-components";
-import theme from "../theme";
+import styled, { ThemeProvider } from "styled-components";
 
 import Header from "../components/Header";
+import Container from "../components/Container";
+import Link from "../components/Link";
+import theme from "../theme";
 
 import "../css/reset.css";
 import "../css/base.css";
+
+const Footer = styled.div`
+  margin-top: 100px;
+  border-top: #bbb solid 1px;
+  padding: 35px 0 85px;
+  color: #bbb;
+`;
 
 export default class Template extends React.Component {
   static propTypes = {
@@ -27,6 +36,13 @@ export default class Template extends React.Component {
           />
           <Header />
           {this.props.children()}
+          <Container>
+            <Footer>
+              © M6 WEB {new Date().getFullYear()}
+              {" — "} Built with{" "}
+              <Link href="https://www.gatsbyjs.org/">Gatsby</Link>
+            </Footer>
+          </Container>
         </div>
       </ThemeProvider>
     );

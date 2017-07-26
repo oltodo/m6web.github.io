@@ -33,12 +33,14 @@
     "prettier-eslint-cli": "^4.1.1",
     "surge": "^0.19.0"
   },
-  "keywords": ["gatsby"],
+  "keywords": [
+    "gatsby"
+  ],
   "license": "MIT",
   "main": "n/a",
   "scripts": {
     "build": "node --harmony ./node_modules/.bin/gatsby build",
-    "cleanup": "find . -path \"./public/*\" ! -name CNAME -exec rm -rf {} \\;",
+    "cleanup": "rm -rf public/* && git checkout -- public && rm -rf .cache",
     "deploy": "surge --project public",
     "develop": "node --harmony ./node_modules/.bin/gatsby develop",
     "format": "prettier --write gatsby-config.js \"src/**/*.js\""
