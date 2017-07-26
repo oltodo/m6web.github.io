@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 import { generator } from "uigradients";
 import _ from "lodash";
-import Link from "gatsby-link";
 import GatsbyLink from "gatsby-link";
 
 import Link from "../components/Link";
@@ -85,11 +84,6 @@ const PostTag = Link.extend`
   font-weight: 400;
   text-transform: uppercase;
   cursor: pointer;
-  transition: color .2s;
-
-  &:hover {
-    color: ${colors.royal[700]};
-  }
 
   &:after {
     content: "•";
@@ -104,7 +98,8 @@ const PostTag = Link.extend`
 
 export default class Feed extends Component {
   static propTypes = {
-    posts: PropTypes.array.isRequired
+    posts: PropTypes.array.isRequired,
+    withHighlight: PropTypes.array.bool
   };
 
   renderPost(post, highlighted = false) {
@@ -138,14 +133,17 @@ export default class Feed extends Component {
   }
 
   render() {
-    const { posts } = this.props;
+    const { posts, withHighlight } = this.props;
 
     return (
       <Wrapper>
-        <FeedRow>
-          {this.renderPost(posts.shift(), true)}
-        </FeedRow>
-        <FeedSeparator />
+        {withHighlight &&
+          <div>
+            <FeedRow>
+              {this.renderPost(posts.shift(), true)}
+            </FeedRow>
+            <FeedSeparator />
+          </div>}
 
         {_.chunk(posts, 2).map(([post1, post2], key) =>
           <div key={key}>

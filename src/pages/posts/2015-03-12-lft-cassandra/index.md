@@ -1,5 +1,5 @@
 ---
-path: /
+path: /lft-cassandra
 title: Introduction à Cassandra
 description: Baptiste nous présente Cassandra et ce qu'il y a sous le capot.
 date: '2015-03-12T00:00:00+01:00'

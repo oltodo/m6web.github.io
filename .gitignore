@@ -31,3 +31,4 @@ public/*
 !public/CNAME
 .cache/
 .DS_Store
+.yarnclean

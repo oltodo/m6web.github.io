@@ -1,5 +1,5 @@
 ---
-path: /
+path: /retour-sur-le-forumphp2014
 title: Retour sur le forum PHP 2014 organisé par l'AFUP
 description: ''
 date: '2014-11-12T00:00:00+01:00'
@@ -35,7 +35,7 @@ Sans revenir sur l’ensemble de la présentation, voici un retour sur les 12 fa
 * Dependencies : déclaration explicite et complète de l’arbre de dépendances, utilisé uniformément pour tous les environnements. Exemples : composer, npm etc.
 * Config : séparation stricte config/code (Resources, Backing services, Credentials, Hostname etc.). Exemples : parameters.yml pour Symfony 2 ou utilisation de variables d’environnement avec Docker notamment. Utilisation de fig pour l’orchestration des containers docker.
 * Backing Services : tous les services utilisés par l’application sont accessibles par le réseau. Il n’y a pas de distinction entre les ressources locales et distantes car toutes sont accessibles via URL et/ou Credentials. Exemples : MySQL, RabbitMQ, Postfix, Redis, S3 etc.
-* Build, release, run : séparation stricte entre 
+* Build, release, run : séparation stricte entre
   * “build stage” : téléchargement d’une version du code et des dépendances. Exemples : “docker build”
   * “release stage“ : utilise le “build” et le combine avec la configuration du déploiement (une version sur un environnement). Exemple : “docker push”, utilisation de capistrano...
   * “run stage” : lancement de la “release” sur l’environnement cible. Exemple “docker run” ou “fig run”
@@ -49,7 +49,7 @@ Sans revenir sur l’ensemble de la présentation, voici un retour sur les 12 fa
 
 [slides](https://speakerdeck.com/ubermuda/vers-des-applications-twelve-factor)
 
-Personnellement, j'ai trouvé cette conférence vraiment riche et instructive. Peut-être un peu plus d'exemples de configuration fig/docker aurait pu illustrer d'avantage. 
+Personnellement, j'ai trouvé cette conférence vraiment riche et instructive. Peut-être un peu plus d'exemples de configuration fig/docker aurait pu illustrer d'avantage.
 
 ## La mesure ce n'est pas que pour le devops
 
@@ -90,7 +90,7 @@ Fedora 21+ :
 
 A venir : Software Collections (scl) permet d’avoir TOUTES les versions de PHP souhaitées simultanément sur la même installation de Fedora. **Vraiment prometteur** !
 
-Exemple d’utilisation des SCL en cli : 
+Exemple d’utilisation des SCL en cli :
 
 ```bash
 scl enable php56 -f myscript56.php
@@ -105,7 +105,7 @@ Dans une config apache :
 ```bash
 <VirtualHost *:80>
     ServerName php56scl
-    
+
     # Redirect to FPM server in php56 SCL
     <FilesMatch \.php$>
     SetHandler "proxy:fcgi://127.0.0.1:9006"
@@ -120,14 +120,14 @@ Dans une config apache :
 Francois Zaninotto nous a offert un vrai show en se mettant dans la peau d'un homme politique candidat à la présidence du parti des développeurs. Avec beaucoup d'humour il a fait un retour sur l'évolution (sa propre évolution ?) du développement web et son futur hypothétique, tout en distillant (son programme) de précieux conseils pour être un meilleur développeur.
 
 Son programme :
- 
+
 * Le domaine d'abord : lier son développement métier à un minimum de tierce partie (pas facile à faire !),
 * Dites non au full-stack (ça se discute !),
 * L'application plurielle : ne pas hésiter à mélanger différents langages et différents projets dialoguant via http sur une même application,
 * Repenser le temps : passons aux 32h pour nous permettre de faire de la veille.
- 
- A la communauté PHP nous pourrions proposer une synthèse (entendu ailleurs) : *"soyons plus des développeurs web que des développeurs PHP, soyons plus des développeurs que des développeurs web"*. 
- 
+
+ A la communauté PHP nous pourrions proposer une synthèse (entendu ailleurs) : *"soyons plus des développeurs web que des développeurs PHP, soyons plus des développeurs que des développeurs web"*.
+
 <iframe width="560" height="315" src="//www.youtube.com/embed/ep3Oztvy0rk" frameborder="0" allowfullscreen></iframe>
 
 ## Retour d'expérience ARTE GEIE : développement d’API
@@ -138,7 +138,7 @@ Il a ensuite expliqué en détail l’implémentation de {json:api} dans Symfony
 
 ![archi de l'API ARTE](./arte.jpg)
 
-Une conférence didactique et claire. 
+Une conférence didactique et claire.
 
 <iframe width="560" height="315" src="//www.youtube.com/embed/nxqEpkTV_BE" frameborder="0" allowfullscreen></iframe>
 
@@ -147,12 +147,12 @@ Une conférence didactique et claire.
 [Maxime Valette](https://twitter.com/maxime) nous expliqué comment il a (à 20 ans à peine) crée un business incroyable sur Internet et a surtout réussi à gérer une augmentation de 30 à 40K visiteurs de plus chaque jour avec pratiquement juste sa b* et son c*.
 
 
-    - Comment on fait ? 
-    - Comme on peut ! 
+    - Comment on fait ?
+    - Comme on peut !
 
 
 De vrai qualité d'orateur pour Maxime et une conf très rafraichissante. Une démonstration de lean startup par l'exemple. Même si ce choix n'a pas été discuté, PHP était un choix naturel pour lui à l'époque.
- 
+
  <iframe width="560" height="315" src="//www.youtube.com/embed/rZrj_1IFGCM" frameborder="0" allowfullscreen></iframe>
 
 ## An introduction to the Laravel Framework for PHP.
@@ -163,7 +163,7 @@ Une fois passé la très longue présentation des livres et autres activités du
 
 Au final, l'impression laissée est mitigée : certes, le seuil d'entrée est relativement réduit, tout est simple d'apparence, mais c'était la même chose pour Symfony1, et l'expérience nous a montré que lorsque l'on essayait de sortir le framework des sentiers battus, cette simplicité devenait un vrai obstacle.
 
-Au final, Laravel est sûrement une alternative intéressante pour les nostalgiques de Symfony1, puisque le projet est actif et maintenu. Mais, pour les projets que nous développons, Symfony2 reste une solution tout à fait adaptée. 
+Au final, Laravel est sûrement une alternative intéressante pour les nostalgiques de Symfony1, puisque le projet est actif et maintenu. Mais, pour les projets que nous développons, Symfony2 reste une solution tout à fait adaptée.
 
 ## Laisse pas trainer ton log !
 
@@ -174,11 +174,11 @@ Au final, Laravel est sûrement une alternative intéressante pour les nostalgiq
 Il nous as donc présenté la solution qu'il utilise, à savoir la stack ELK, pour [ElasticSearch](http://www.elasticsearch.org/)/[LogStash](http://logstash.net/)/[Kibana](http://www.elasticsearch.org/overview/kibana/), qui permet à chaque serveur d'envoyer ses logs vers un serveur central, qui a pour charge de les agréger, et de permettre leur utilisation avancée.
 Fini la recherche dans des fichiers textes plats qu'il faut commencer par comprendre, désormais vos applicatifs peuvent enrichir leurs logs, les envoyer sur un système dédié à la gestion des logs disposant de vraies interfaces de recherche et de consultation.
 
-Nous avons été confortés dans notre idée, puisque nous mettons également en oeuvre cette solution. 
+Nous avons été confortés dans notre idée, puisque nous mettons également en oeuvre cette solution.
 
 ## Table ronde "Etat des lieux et avenir de PHP"
 
-[Pascal Martin](https://twitter.com/pascal_martin) a animé d’une main de maître une table ronde sur l’avenir de PHP. Avec Jordi Boggiano, lead developer de Composer, Pierre Joye, core dev de PHP, Julien Pauli, release manager de PHP 5.5 et co-RM de PHP 5.6. 
+[Pascal Martin](https://twitter.com/pascal_martin) a animé d’une main de maître une table ronde sur l’avenir de PHP. Avec Jordi Boggiano, lead developer de Composer, Pierre Joye, core dev de PHP, Julien Pauli, release manager de PHP 5.5 et co-RM de PHP 5.6.
 
 La communauté se pose beaucoup de questions sur le devenir de l’engine PHP et comment va évoluer le langage.   
 Les débats ont été intenses et les invités ont pu répondre à des questions posées via Twitter. Au final peu de conclusions définitives. On peut déduire que malgré les alternatives proposées par HHVM et HippyVM, la communauté reste majoritairement sur PHP et est toujours très friande d’évolutions du langage et de sa performance. Les invités de la table ronde ont exhortés les participants à contribuer au code de PHP en nous fournissant pas mal de conseils.
@@ -186,11 +186,11 @@ Les débats ont été intenses et les invités ont pu répondre à des questions
 <iframe width="560" height="315" src="//www.youtube.com/embed/U4dYlxQATlk" frameborder="0" allowfullscreen></iframe>
 
 ## Slideshow Karaoké
-   
+
 Une honte ! En plus les slides n’avaient aucun sens ! :) Bravo à [Mc Kenny](https://twitter.com/kenny_dee) pour l'animation.
 
 <iframe width="560" height="315" src="//www.youtube.com/embed/Ln12meWM1pE" frameborder="0" allowfullscreen></iframe>
 
 ![Les participants au karaoké](./ss_karaoke.jpg)   
-   
+
 Un grand merci à l’AFUP pour ce joli évènement ! Retrouvez pas mal de ressources partagés pendant l'event sur [eventifier](http://eventifier.com/event/frmphp/).

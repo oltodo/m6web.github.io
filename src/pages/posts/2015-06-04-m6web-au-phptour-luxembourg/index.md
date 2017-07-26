@@ -1,5 +1,5 @@
 ---
-path: /
+path: /m6web-au-phptour-luxembourg
 title: 'On était au PHPTour ! '
 description: et c'était bien.
 date: '2015-06-04T00:00:00+02:00'
