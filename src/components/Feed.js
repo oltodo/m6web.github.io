@@ -4,6 +4,9 @@ import styled, { css } from "styled-components";
 import { generator } from "uigradients";
 import _ from "lodash";
 import Link from "gatsby-link";
+import GatsbyLink from "gatsby-link";
+
+import Link from "../components/Link";
 
 import { colors } from "../theme";
 
@@ -47,17 +50,12 @@ const PostImage = styled.div`
     `};
 `;
 
-const PostTitle = styled.div`
+const PostTitle = Link.extend`
   color: #aaa;
   font-weight: 700;
   font-size: 40px;
   line-height: 1.2;
   width: 90%;
-  transition: color .2s;
-
-  &:hover {
-    color: ${colors.royal[700]};
-  }
 
   ${p =>
     p.big &&
@@ -82,7 +80,7 @@ const PostTags = styled.div`
   line-height: 1.5;
 `;
 
-const PostTag = styled.div`
+const PostTag = Link.extend`
   color: #ccc;
   font-weight: 400;
   text-transform: uppercase;
@@ -118,19 +116,19 @@ export default class Feed extends Component {
         <PostDate>
           {post.date}
         </PostDate>
-        <Link to={post.path}>
-          <PostTitle big={highlighted}>
+        <GatsbyLink to={post.path}>
+          <PostTitle naked big={highlighted}>
             {post.title}
           </PostTitle>
-        </Link>
+        </GatsbyLink>
         <PostTags>
           {post.authors.map(({ name }) =>
-            <PostTag>
+            <PostTag naked>
               {name}
             </PostTag>
           )}
           {post.tags.slice(0, 2).map(tag =>
-            <PostTag>
+            <PostTag naked>
               {tag}
             </PostTag>
           )}

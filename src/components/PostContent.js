@@ -4,6 +4,8 @@ import styled from "styled-components";
 import { generator } from "uigradients";
 import _ from "lodash";
 
+import Link from "../components/Link";
+
 import highlight from "../utils/highlight";
 
 import "prismjs/themes/prism.css";
@@ -56,8 +58,6 @@ const Wrapper = styled.div`
 `;
 
 const Paragraph = styled.p`margin-bottom: 35px;`;
-
-const Link = styled.a`word-wrap: break-word;`;
 
 const Emphasis = styled.em`font-style: italic;`;
 
@@ -122,6 +122,8 @@ const Headings = {
 const List = styled.ul`
   margin-bottom: 35px;
   padding-left: 35px;
+const LinkExtended = Link.extend`word-wrap: break-word;`;
+
 `;
 
 const ListItem = styled.li`list-style: initial;`;
@@ -264,9 +266,9 @@ export default class PostContent extends Component {
 
   renderLink(node) {
     return (
-      <Link href={node.url} title={node.title}>
+      <LinkExtended href={node.url} title={node.title}>
         {this.renderChildNodes(node)}
-      </Link>
+      </LinkExtended>
     );
   }
 
@@ -285,11 +287,11 @@ export default class PostContent extends Component {
 
   renderFootnoteReference(node) {
     return (
-      <Link href={`#ref${node.identifier}`}>
+      <LinkExtended naked shiny href={`#ref${node.identifier}`}>
         <FootnoteReference>
           {node.identifier}
         </FootnoteReference>
-      </Link>
+      </LinkExtended>
     );
   }
 
