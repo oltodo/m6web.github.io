@@ -3,9 +3,8 @@ import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 import { generator } from "uigradients";
 import _ from "lodash";
-import GatsbyLink from "gatsby-link";
 
-import Link from "../components/Link";
+import Link, { LinkTo } from "../components/Link";
 
 import { colors } from "../theme";
 
@@ -49,18 +48,14 @@ const PostImage = styled.div`
     `};
 `;
 
-const PostTitle = Link.extend`
+const PostTitle = styled(({ big, ...rest }) => <LinkTo {...rest} />)`
   color: #aaa;
   font-weight: 700;
   font-size: 40px;
   line-height: 1.2;
   width: 90%;
 
-  ${p =>
-    p.big &&
-    css`
-    font-size: 60px;
-  `};
+  ${p => p.big && { fontSize: 60 }};
 `;
 
 const PostDate = styled.div`
@@ -99,7 +94,7 @@ const PostTag = Link.extend`
 export default class Feed extends Component {
   static propTypes = {
     posts: PropTypes.array.isRequired,
-    withHighlight: PropTypes.array.bool
+    withHighlight: PropTypes.bool
   };
 
   renderPost(post, highlighted = false) {
@@ -111,19 +106,17 @@ export default class Feed extends Component {
         <PostDate>
           {post.date}
         </PostDate>
-        <GatsbyLink to={post.path}>
-          <PostTitle naked big={highlighted}>
-            {post.title}
-          </PostTitle>
-        </GatsbyLink>
+        <PostTitle naked big={highlighted} to={post.path}>
+          {post.title}
+        </PostTitle>
         <PostTags>
           {post.authors.map(({ name }) =>
-            <PostTag naked>
+            <PostTag key={name} naked>
               {name}
             </PostTag>
           )}
           {post.tags.slice(0, 2).map(tag =>
-            <PostTag naked>
+            <PostTag key={tag} naked>
               {tag}
             </PostTag>
           )}

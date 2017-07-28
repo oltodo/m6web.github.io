@@ -1,8 +1,10 @@
-import styled from "styled-components";
+import React from "react";
+import styled, { css } from "styled-components";
+import Link from "gatsby-link";
 
 import { colors } from "../theme";
 
-export default styled.a`
+const styles = css`
   transition: color .2s;
   cursor: pointer;
   color: inherit;
@@ -15,3 +17,11 @@ export default styled.a`
     color: ${colors.royal[700]};
   }
 `;
+
+export default styled.a`
+  ${styles};
+`;
+
+export const LinkTo = styled(({ naked, shiny, ...rest }) =>
+  <Link {...rest} />
+)`${styles}`;
