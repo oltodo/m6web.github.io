@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { generator } from "uigradients";
 import _ from "lodash";
+import md5 from "md5";
 
 import Link from "../components/Link";
 
@@ -221,19 +222,17 @@ export default class PostContent extends Component {
     }
 
     // On souhaite exclure les blocks images
-    const nodes = splitParagraph(node);
+    const splittedNodes = splitParagraph(node);
 
-    return nodes.map(childNode => {
-      if (childNode.type === "paragraph") {
-        return (
-          <Paragraph>
-            {this.renderChildNodes(childNode)}
-          </Paragraph>
-        );
-      }
+    if (splittedNodes.length > 1 || splittedNodes[0].type !== "paragraph") {
+      return this.renderChildNodes({ children: splittedNodes });
+    }
 
-      return this.renderNode(childNode, node);
-    });
+    return (
+      <Paragraph>
+        {this.renderChildNodes(node)}
+      </Paragraph>
+    );
   }
 
   renderText(node) {
@@ -402,7 +401,16 @@ export default class PostContent extends Component {
   }
 
   renderChildNodes(node) {
-    return node.children.map(childNode => this.renderNode(childNode, node));
+    return node.children.map(childNode => {
+      const element = this.renderNode(childNode, node);
+      const key = md5(JSON.stringify(childNode));
+
+      if (React.isValidElement(element)) {
+        return React.cloneElement(element, { key });
+      }
+
+      return element;
+    });
   }
 
   renderFootnoteDefinitions() {
@@ -431,8 +439,6 @@ export default class PostContent extends Component {
   }
 
   render() {
-    console.clear();
-
     const { ast } = this.props;
 
     // Get references
