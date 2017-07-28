@@ -10,8 +10,6 @@ import Container from "../components/Container";
 import PostContent from "../components/PostContent";
 import { colors } from "../theme";
 
-import "../css/post.css";
-
 const GUTTER = 50;
 
 const FeaturedImage = styled.div`
@@ -19,19 +17,21 @@ const FeaturedImage = styled.div`
   background: ${colors.royal[200]} no-repeat center;
   ${generator({ gradient: "electric_violet", angle: 225 })};
   background-size: cover;
-  margin-bottom: ${GUTTER}px;
+  margin: 0 auto ${GUTTER}px;
+  max-width: 1280px;
+  min-height: 300px;
+
+  ${p =>
+    p.src &&
+    css`
+      background-image: url(${p.src});
+    `};
 
   &:before {
     content: "";
     display: block;
     padding-bottom: 60%;
   }
-
-  ${p =>
-    p.src &&
-    css`
-    background-image: url(${p.src});
-    `};
 `;
 
 const Title = styled.h1`
@@ -45,6 +45,21 @@ const Title = styled.h1`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+
+  ${({ theme }) => theme.media.md`
+    font-size: ${p => (p.long ? 50 : 60)}px;
+    bottom: 40px;
+  `};
+
+  ${({ theme }) => theme.media.sm`
+    font-size: ${p => (p.long ? 40 : 50)}px;
+    bottom: 30px;
+  `};
+
+  ${({ theme }) => theme.media.xs`
+    font-size: ${p => (p.long ? 30 : 36)}px;
+    bottom: 20px;
+  `};
 `;
 
 const TitleRow = styled.span`
@@ -67,18 +82,12 @@ const Separator = styled.div`
   ${generator({ gradient: "electric_violet", angle: 225 })};
 `;
 
-const Content = styled.div`
-  max-width: 700px;
-  margin: 0 auto;
-  padding-left: 100px;
-`;
-
 export default class BlogPost extends Component {
   renderHeader() {
     const { markdownRemark: post } = this.props.data;
     const { title } = post.frontmatter;
 
-    const image = _.get(post.frontmatter, "image.childImageSharp.resize.src");
+    const image = _.get(post.frontmatter, "image.childImageSharp.resize");
 
     const long = title.length > 60;
     const splittedTitle = wrap(title, { width: long ? 20 : 17 }).split("\n");
@@ -86,10 +95,10 @@ export default class BlogPost extends Component {
     const lineColors = chroma
       .scale([colors.purple[500], colors.royal[500]])
       .mode("lch")
-      .colors(5);
+      .colors(Math.max(5, splittedTitle.length));
 
     return (
-      <FeaturedImage src={image}>
+      <FeaturedImage {...image}>
         <Title long={long}>
           {splittedTitle.map((line, index) =>
             <TitleRow key={index} color={lineColors[index]}>
@@ -107,17 +116,16 @@ export default class BlogPost extends Component {
     const { markdownRemark: post } = this.props.data;
 
     return (
-      <Container>
+      <div>
         <Helmet title={post.frontmatter.title} />
         {this.renderHeader()}
-
-        <Content>
+        <Container>
           <PostContent
             ast={JSON.parse(post.ast)}
             title={post.frontmatter.title}
           />
-        </Content>
-      </Container>
+        </Container>
+      </div>
     );
   }
 }
@@ -132,7 +140,7 @@ export const pageQuery = graphql`
         title
         image {
           childImageSharp {
-            resize(width: 750, height: 450) {
+            resize(width: 1024) {
               src
             }
           }

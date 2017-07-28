@@ -1,3 +1,5 @@
+import { css } from "styled-components";
+
 const colors = {
   purple: {
     50: "#f1eafc",
@@ -35,6 +37,31 @@ const colors = {
   }
 };
 
+const breakpoints = {
+  xl: 1280,
+  lg: 1088,
+  md: 896,
+  sm: 704,
+  xs: 512
+};
+
+// iterate through the sizes and create a media template
+const media = Object.keys(breakpoints).reduce((accumulator, label) => {
+  // use em in breakpoints to work properly cross-browser and support users
+  // changing their browsers font-size: https://zellwk.com/blog/media-query-units/
+  const emSize = breakpoints[label] / 16;
+
+  accumulator[label] = (...args) => css`
+    @media (max-width: ${emSize}em) {
+      ${css(...args)}
+    }
+  `;
+
+  return accumulator;
+}, {});
+
 export default {
-  colors
+  colors,
+  breakpoints,
+  media
 };
