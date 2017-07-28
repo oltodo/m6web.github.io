@@ -6,7 +6,6 @@ import { generator } from "uigradients";
 import wrap from "word-wrap";
 import chroma from "chroma-js";
 
-import Container from "../components/Container";
 import PostContent from "../components/PostContent";
 import { colors } from "../theme";
 
@@ -32,6 +31,10 @@ const FeaturedImage = styled.div`
     display: block;
     padding-bottom: 60%;
   }
+
+  ${({ theme }) => theme.media.sm`
+    margin-bottom: ${GUTTER / 2}px;
+  `};
 `;
 
 const Title = styled.h1`
@@ -119,12 +122,10 @@ export default class BlogPost extends Component {
       <div>
         <Helmet title={post.frontmatter.title} />
         {this.renderHeader()}
-        <Container>
-          <PostContent
-            ast={JSON.parse(post.ast)}
-            title={post.frontmatter.title}
-          />
-        </Container>
+        <PostContent
+          ast={JSON.parse(post.ast)}
+          title={post.frontmatter.title}
+        />
       </div>
     );
   }

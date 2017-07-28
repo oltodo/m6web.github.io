@@ -56,9 +56,74 @@ const Wrapper = styled.div`
   color: #434343;
   font-size: 19px;
   line-height: 1.8;
+
+  ${({ theme }) => theme.media.sm`
+    font-size: 17px;
+  `};
 `;
 
-const Paragraph = styled.p`margin-bottom: 35px;`;
+const Block = styled.div`
+  max-width: 750px;
+  margin: 0 auto 35px !important;
+  padding: 0 15px;
+`;
+
+const BlockLarge = styled.div`
+  max-width: 850px;
+  margin: 0 auto 35px !important;
+`;
+
+const Paragraph = Block.withComponent("p");
+
+const BlockCode = Block.withComponent("pre").extend`
+  font-size: 16px;
+`;
+
+const Headings = {
+  Heading1: Block.withComponent("h1").extend`
+    font-weight: 400;
+    font-size: 2.2em;
+    line-height: 1.2;
+    margin: 75px 0 50px 0;
+  `,
+
+  Heading2: Block.withComponent("h2").extend`
+    font-weight: 700;
+    font-size: 1.8em;
+    line-height: 1.2;
+    margin: 55px 0 35px 0;
+  `,
+
+  Heading3: Block.withComponent("h3").extend`
+    font-weight: 400;
+    font-size: 1.5em;
+    line-height: 1.2;
+    font-style: italic;
+    margin: 45px 0 25px 0;
+  `,
+
+  Heading4: Block.withComponent("h4").extend`
+    font-weight: 700;
+    font-size: 1.2em;
+    line-height: 1.2;
+    margin: 45px 0 25px 0;
+  `,
+
+  Heading5: Block.withComponent("h5").extend`
+    font-weight: 700;
+    font-size: 1.1em;
+    line-height: 1.2;
+    margin: 35px 0 25px 0;
+  `,
+
+  Heading6: Block.withComponent("h6").extend`
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 25px 0 25px 0;
+  `
+};
+
+const LinkExtended = Link.extend`word-wrap: break-word;`;
 
 const Emphasis = styled.em`font-style: italic;`;
 
@@ -71,69 +136,22 @@ const InlineCode = styled.code`
   border-radius: 2px;
 `;
 
-const BlockCode = styled.pre`
-  font-size: 16px;
-  margin: 0 0 35px !important;
+const List = Block.withComponent("ul").extend`
+  ul {
+    margin: 0 !important;
+  }
 `;
 
-const Headings = {
-  Heading1: styled.h1`
-    font-weight: 400;
-    font-size: 2.2em;
-    line-height: 1.2;
-    margin: 75px 0 50px 0;
-  `,
-
-  Heading2: styled.h2`
-    font-weight: 700;
-    font-size: 1.8em;
-    line-height: 1.2;
-    margin: 55px 0 35px 0;
-  `,
-
-  Heading3: styled.h3`
-    font-weight: 400;
-    font-size: 1.5em;
-    line-height: 1.2;
-    font-style: italic;
-    margin: 45px 0 25px 0;
-  `,
-
-  Heading4: styled.h4`
-    font-weight: 700;
-    font-size: 1.2em;
-    line-height: 1.2;
-    margin: 45px 0 25px 0;
-  `,
-
-  Heading5: styled.h5`
-    font-weight: 700;
-    font-size: 1.1em;
-    line-height: 1.2;
-    margin: 35px 0 25px 0;
-  `,
-
-  Heading6: styled.h6`
-    font-weight: 700;
-    line-height: 1.2;
-    margin: 25px 0 25px 0;
-  `
-};
-
-const List = styled.ul`
-  margin-bottom: 35px;
-  padding-left: 35px;
-const LinkExtended = Link.extend`word-wrap: break-word;`;
-
+const ListItem = styled.li`
+  list-style: initial;
+  margin-left: 35px;
 `;
 
-const ListItem = styled.li`list-style: initial;`;
-
-const Blockquote = styled.blockquote`
+const Blockquote = Block.withComponent("blockquote").extend`
   font-family: Georgia, serif;
   font-style: italic;
   width: 80%;
-  margin: 0 0 35px -70px;
+  margin-left: -70px;
   padding-left: 35px;
   position: relative;
   color: #777;
@@ -152,12 +170,9 @@ const Blockquote = styled.blockquote`
   }
 `;
 
-const Html = styled.div`
-  margin-bottom: 35px;
-  text-align: center;
-`;
+const Html = Block.extend`text-align: center;`;
 
-const ImageContainer = styled.div`margin: 0 -50px 35px;`;
+const ImageContainer = BlockLarge.extend``;
 
 const Image = styled.img`
   display: block;
@@ -421,7 +436,7 @@ export default class PostContent extends Component {
     }
 
     return (
-      <div>
+      <Block>
         <Separator />
 
         {defs.map(def =>
@@ -434,7 +449,7 @@ export default class PostContent extends Component {
             </FootnoteDefinitionContent>
           </FootnoteDefinition>
         )}
-      </div>
+      </Block>
     );
   }
 
