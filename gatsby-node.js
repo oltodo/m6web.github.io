@@ -37,23 +37,25 @@ const createHomePages = (posts, createPage) => {
 exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage } = boundActionCreators;
 
-  return graphql(`{
-    allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
-      limit: 1000
-    ) {
-      edges {
-        node {
-          ast
-          frontmatter {
-            date
-            path
-            title
+  return graphql(`
+    {
+      allMarkdownRemark(
+        sort: { order: DESC, fields: [frontmatter___date] }
+        limit: 1000
+      ) {
+        edges {
+          node {
+            ast
+            frontmatter {
+              date
+              path
+              title
+            }
           }
         }
       }
     }
-  }`).then(result => {
+  `).then(result => {
     if (result.errors) {
       return Promise.reject(result.errors);
     }

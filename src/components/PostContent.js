@@ -220,11 +220,7 @@ export default class PostContent extends Component {
   renderHeading(node) {
     const Component = Headings[`Heading${node.depth}`];
 
-    return (
-      <Component>
-        {this.renderChildNodes(node)}
-      </Component>
-    );
+    return <Component>{this.renderChildNodes(node)}</Component>;
   }
 
   renderParagraph(node, parent) {
@@ -243,11 +239,7 @@ export default class PostContent extends Component {
       return this.renderChildNodes({ children: splittedNodes });
     }
 
-    return (
-      <Paragraph>
-        {this.renderChildNodes(node)}
-      </Paragraph>
-    );
+    return <Paragraph>{this.renderChildNodes(node)}</Paragraph>;
   }
 
   renderText(node) {
@@ -255,27 +247,15 @@ export default class PostContent extends Component {
   }
 
   renderEmphasis(node) {
-    return (
-      <Emphasis>
-        {this.renderChildNodes(node)}
-      </Emphasis>
-    );
+    return <Emphasis>{this.renderChildNodes(node)}</Emphasis>;
   }
 
   renderStrong(node) {
-    return (
-      <Strong>
-        {this.renderChildNodes(node)}
-      </Strong>
-    );
+    return <Strong>{this.renderChildNodes(node)}</Strong>;
   }
 
   renderInlineCode(node) {
-    return (
-      <InlineCode>
-        {node.value}
-      </InlineCode>
-    );
+    return <InlineCode>{node.value}</InlineCode>;
   }
 
   renderLink(node) {
@@ -302,27 +282,17 @@ export default class PostContent extends Component {
   renderFootnoteReference(node) {
     return (
       <LinkExtended naked shiny href={`#ref${node.identifier}`}>
-        <FootnoteReference>
-          {node.identifier}
-        </FootnoteReference>
+        <FootnoteReference>{node.identifier}</FootnoteReference>
       </LinkExtended>
     );
   }
 
   renderList(node) {
-    return (
-      <List>
-        {this.renderChildNodes(node)}
-      </List>
-    );
+    return <List>{this.renderChildNodes(node)}</List>;
   }
 
   renderListItem(node) {
-    return (
-      <ListItem>
-        {this.renderChildNodes(node)}
-      </ListItem>
-    );
+    return <ListItem>{this.renderChildNodes(node)}</ListItem>;
   }
 
   renderCode(node) {
@@ -337,11 +307,7 @@ export default class PostContent extends Component {
   }
 
   renderBlockquote(node) {
-    return (
-      <Blockquote>
-        {this.renderChildNodes(node)}
-      </Blockquote>
-    );
+    return <Blockquote>{this.renderChildNodes(node)}</Blockquote>;
   }
 
   renderHtml(node) {
@@ -353,10 +319,7 @@ export default class PostContent extends Component {
       <ImageContainer>
         <Image src={node.url} />
 
-        {node.legend &&
-          <Legend>
-            {this.renderChildNodes(node.legend)}{" "}
-          </Legend>}
+        {node.legend && <Legend>{this.renderChildNodes(node.legend)} </Legend>}
       </ImageContainer>
     );
   }
@@ -439,16 +402,14 @@ export default class PostContent extends Component {
       <Block>
         <Separator />
 
-        {defs.map(def =>
+        {defs.map(def => (
           <FootnoteDefinition id={`ref${def.identifier}`}>
-            <FootnoteReference>
-              {def.identifier}
-            </FootnoteReference>
+            <FootnoteReference>{def.identifier}</FootnoteReference>
             <FootnoteDefinitionContent>
               {this.renderChildNodes(def)}
             </FootnoteDefinitionContent>
           </FootnoteDefinition>
-        )}
+        ))}
       </Block>
     );
   }

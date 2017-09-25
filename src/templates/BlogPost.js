@@ -20,11 +20,7 @@ const FeaturedImage = styled.div`
   max-width: 1280px;
   min-height: 300px;
 
-  ${p =>
-    p.src &&
-    css`
-      background-image: url(${p.src});
-    `};
+  ${p => p.src && css`background-image: url(${p.src});`};
 
   &:before {
     content: "";
@@ -103,13 +99,11 @@ export default class BlogPost extends Component {
     return (
       <FeaturedImage {...image}>
         <Title long={long}>
-          {splittedTitle.map((line, index) =>
+          {splittedTitle.map((line, index) => (
             <TitleRow key={index} color={lineColors[index]}>
-              <span>
-                {line.trim()}
-              </span>
+              <span>{line.trim()}</span>
             </TitleRow>
-          )}
+          ))}
         </Title>
       </FeaturedImage>
     );

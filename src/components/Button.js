@@ -10,7 +10,7 @@ export default styled.div`
   font-size: 19px;
   outline: 0;
   display: inline-block;
-  transition: color .2s, border-color .2s;
+  transition: color 0.2s, border-color 0.2s;
   cursor: pointer;
 
   &:hover {

@@ -28,11 +28,7 @@ const Post = styled.div`
     margin-right: ${GUTTER}px;
   }
 
-  ${p =>
-    p.big &&
-    css`
-    width: 750px;
-  `};
+  ${p => p.big && css`width: 750px;`};
 `;
 
 const PostImage = styled.div`
@@ -41,11 +37,7 @@ const PostImage = styled.div`
   padding-bottom: 60%;
   ${generator({ gradient: "electric_violet", angle: 225 })};
 
-  ${p =>
-    p.src &&
-    css`
-    background-image: url(${p.src});
-    `};
+  ${p => p.src && css`background-image: url(${p.src});`};
 `;
 
 const PostTitle = styled(({ big, ...rest }) => <LinkTo {...rest} />)`
@@ -103,23 +95,21 @@ export default class Feed extends Component {
     return (
       <Post big={highlighted}>
         <PostImage src={image || null} />
-        <PostDate>
-          {post.date}
-        </PostDate>
+        <PostDate>{post.date}</PostDate>
         <PostTitle naked big={highlighted} to={post.path}>
           {post.title}
         </PostTitle>
         <PostTags>
-          {post.authors.map(({ name }) =>
+          {post.authors.map(({ name }) => (
             <PostTag key={name} naked>
               {name}
             </PostTag>
-          )}
-          {post.tags.slice(0, 2).map(tag =>
+          ))}
+          {post.tags.slice(0, 2).map(tag => (
             <PostTag key={tag} naked>
               {tag}
             </PostTag>
-          )}
+          ))}
         </PostTags>
       </Post>
     );
@@ -130,15 +120,14 @@ export default class Feed extends Component {
 
     return (
       <Wrapper>
-        {withHighlight &&
+        {withHighlight && (
           <div>
-            <FeedRow>
-              {this.renderPost(posts.shift(), true)}
-            </FeedRow>
+            <FeedRow>{this.renderPost(posts.shift(), true)}</FeedRow>
             <FeedSeparator />
-          </div>}
+          </div>
+        )}
 
-        {_.chunk(posts, 2).map(([post1, post2], key) =>
+        {_.chunk(posts, 2).map(([post1, post2], key) => (
           <div key={key}>
             <FeedRow>
               {this.renderPost(post1)}
@@ -146,7 +135,7 @@ export default class Feed extends Component {
             </FeedRow>
             <FeedSeparator />
           </div>
-        )}
+        ))}
       </Wrapper>
     );
   }

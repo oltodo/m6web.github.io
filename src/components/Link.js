@@ -5,7 +5,7 @@ import Link from "gatsby-link";
 import { colors } from "../theme";
 
 const styles = css`
-  transition: color .2s;
+  transition: color 0.2s;
   cursor: pointer;
   color: inherit;
   border-bottom: dashed 1px;
@@ -22,6 +22,6 @@ export default styled.a`
   ${styles};
 `;
 
-export const LinkTo = styled(({ naked, shiny, ...rest }) =>
-  <Link {...rest} />
-)`${styles}`;
+export const LinkTo = styled(({ naked, shiny, ...rest }) => <Link {...rest} />)`
+  ${styles};
+`;

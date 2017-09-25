@@ -14,10 +14,6 @@ export default class Container extends Component {
   };
 
   render() {
-    return (
-      <Wrapper>
-        {this.props.children}
-      </Wrapper>
-    );
+    return <Wrapper>{this.props.children}</Wrapper>;
   }
 }

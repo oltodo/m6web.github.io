@@ -56,7 +56,7 @@ const MenuItem = styled.div`
   }
 `;
 
-export default () =>
+export default () => (
   <div>
     <Edge />
     <Content>
@@ -72,4 +72,5 @@ export default () =>
         <MenuItem>OSS</MenuItem>
       </Menu>
     </Content>
-  </div>;
+  </div>
+);

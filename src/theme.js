@@ -53,7 +53,7 @@ const media = Object.keys(breakpoints).reduce((accumulator, label) => {
 
   accumulator[label] = (...args) => css`
     @media (max-width: ${emSize}em) {
-      ${css(...args)}
+      ${css(...args)};
     }
   `;
 
