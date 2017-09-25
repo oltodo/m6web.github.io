@@ -47,7 +47,7 @@ const PostTitle = styled(({ big, ...rest }) => <LinkTo {...rest} />)`
   line-height: 1.2;
   width: 90%;
 
-  ${p => p.big && { fontSize: 60 }};
+  ${p => p.big && css`font-size: 60px;`};
 `;
 
 const PostDate = styled.div`

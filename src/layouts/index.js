@@ -8,8 +8,7 @@ import Container from "../components/Container";
 import Link from "../components/Link";
 import theme from "../theme";
 
-import "../css/reset.css";
-import "../css/base.css";
+import "./styles";
 
 const Footer = styled.div`
   margin-top: 100px;
