@@ -40,7 +40,9 @@
     "build": "node --harmony ./node_modules/.bin/gatsby build",
     "cleanup": "rm -rf public/* && git checkout -- public && rm -rf .cache",
     "deploy": "surge --project public",
-    "develop": "node --harmony ./node_modules/.bin/gatsby develop",
+    "dev": "node --harmony ./node_modules/.bin/gatsby develop",
+    "develop": "yarn dev",
+    "start": "yarn dev",
     "format": "prettier-eslint --write package.json \"*.js\" \"src/**/*.js\""
   }
 }
