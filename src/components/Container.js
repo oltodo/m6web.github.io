@@ -1,19 +1,23 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const Wrapper = styled.div`
-  max-width: 1094px;
+  max-width: 1024px;
   margin: 0 auto;
-  padding: 0 35px;
+
+  ${p => p.margins && css`padding: 0 15px;`};
 `;
 
 export default class Container extends Component {
   static propTypes = {
-    children: PropTypes.any
+    children: PropTypes.any,
+    margins: PropTypes.bool
   };
 
   render() {
-    return <Wrapper>{this.props.children}</Wrapper>;
+    const { margins = true } = this.props;
+
+    return <Wrapper margins={margins}>{this.props.children}</Wrapper>;
   }
 }

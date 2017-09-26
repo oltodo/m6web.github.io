@@ -12,6 +12,8 @@ export default styled.div`
   display: inline-block;
   transition: color 0.2s, border-color 0.2s;
   cursor: pointer;
+  text-align: center;
+  width: ${p => (p.fluid ? "100%" : "auto")};
 
   &:hover {
     color: ${colors.royal[700]};

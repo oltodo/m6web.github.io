@@ -1,24 +1,35 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 import { generator } from "uigradients";
 import _ from "lodash";
 
+import Container from "../components/Container";
 import Link, { LinkTo } from "../components/Link";
 
 import { colors } from "../theme";
 
 const GUTTER = 50;
 
-const Wrapper = styled.div``;
+const FeedRow = styled.div`
+  display: flex;
 
-const FeedRow = styled.div`display: flex;`;
+  ${({ theme }) => theme.media.xs`
+    display: block;
+  `};
+`;
 
 const FeedSeparator = styled.div`
   width: 300px;
   height: 1px;
   margin: ${GUTTER * 1.5}px 0;
   ${generator({ gradient: "electric_violet", angle: 225 })};
+
+  ${({ theme }) => theme.media.sm`
+    width: 150px;
+    margin: ${GUTTER}px 0;
+  `};
 `;
 
 const Post = styled.div`
@@ -29,6 +40,13 @@ const Post = styled.div`
   }
 
   ${p => p.big && css`width: 750px;`};
+
+  ${({ theme }) => theme.media.sm`
+    width: 100%;
+    &:first-child {
+      margin-right: 0;
+    }
+  `};
 `;
 
 const PostImage = styled.div`
@@ -40,6 +58,16 @@ const PostImage = styled.div`
   ${p => p.src && css`background-image: url(${p.src});`};
 `;
 
+const PostContent = styled.div`
+  margin-top: 35px;
+
+  ${p => p.margin && css`margin: 0 15px;`};
+
+  ${({ theme }) => theme.media.sm`
+    margin-top: 20px;
+  `};
+`;
+
 const PostTitle = styled(({ big, ...rest }) => <LinkTo {...rest} />)`
   color: #aaa;
   font-weight: 700;
@@ -48,15 +76,26 @@ const PostTitle = styled(({ big, ...rest }) => <LinkTo {...rest} />)`
   width: 90%;
 
   ${p => p.big && css`font-size: 60px;`};
+
+  ${({ theme }) => theme.media.xs`
+    font-size: 30px;
+  `};
 `;
 
 const PostDate = styled.div`
   color: #aaa;
   font-weight: 400;
-  margin-top: 35px;
   margin-bottom: 15px;
   font-size: 26px;
   line-height: 1.2;
+
+  ${({ theme }) => theme.media.sm`
+    font-size: 22px;
+  `};
+
+  ${({ theme }) => theme.media.xs`
+    font-size: 18px;
+  `};
 `;
 
 const PostTags = styled.div`
@@ -81,53 +120,67 @@ const PostTag = Link.extend`
   &:last-child:after {
     display: none;
   }
+
+  ${({ theme }) => theme.media.xs`
+    font-size: 0.8em;
+  `};
 `;
 
-export default class Feed extends Component {
+class Feed extends Component {
   static propTypes = {
     posts: PropTypes.array.isRequired,
+    browser: PropTypes.object.isRequired,
     withHighlight: PropTypes.bool
   };
 
   renderPost(post, highlighted = false) {
+    const { browser } = this.props;
+
     const image = _.get(post, "image.childImageSharp.resize.src");
 
     return (
       <Post big={highlighted}>
         <PostImage src={image || null} />
-        <PostDate>{post.date}</PostDate>
-        <PostTitle naked big={highlighted} to={post.path}>
-          {post.title}
-        </PostTitle>
-        <PostTags>
-          {post.authors.map(({ name }) => (
-            <PostTag key={name} naked>
-              {name}
-            </PostTag>
-          ))}
-          {post.tags.slice(0, 2).map(tag => (
-            <PostTag key={tag} naked>
-              {tag}
-            </PostTag>
-          ))}
-        </PostTags>
+        <PostContent margin={browser.lessThan.md}>
+          <PostDate>{post.date}</PostDate>
+          <PostTitle naked big={highlighted} to={post.path}>
+            {post.title}
+          </PostTitle>
+          <PostTags>
+            {post.authors.map(({ name }) => (
+              <PostTag key={name} naked>
+                {name}
+              </PostTag>
+            ))}
+            {post.tags.slice(0, 2).map(tag => (
+              <PostTag key={tag} naked>
+                {tag}
+              </PostTag>
+            ))}
+          </PostTags>
+        </PostContent>
       </Post>
     );
   }
 
   render() {
-    const { posts, withHighlight } = this.props;
+    const { posts, browser, withHighlight } = this.props;
+
+    const nbColumns = browser.lessThan.md ? 1 : 2;
+
+    const clonedPosts = [...posts];
 
     return (
-      <Wrapper>
-        {withHighlight && (
-          <div>
-            <FeedRow>{this.renderPost(posts.shift(), true)}</FeedRow>
-            <FeedSeparator />
-          </div>
-        )}
+      <Container margins={nbColumns > 1}>
+        {nbColumns > 1 &&
+          withHighlight && (
+            <div>
+              <FeedRow>{this.renderPost(clonedPosts.shift(), true)}</FeedRow>
+              <FeedSeparator />
+            </div>
+          )}
 
-        {_.chunk(posts, 2).map(([post1, post2], key) => (
+        {_.chunk(clonedPosts, nbColumns).map(([post1, post2], key) => (
           <div key={key}>
             <FeedRow>
               {this.renderPost(post1)}
@@ -136,7 +189,9 @@ export default class Feed extends Component {
             <FeedSeparator />
           </div>
         ))}
-      </Wrapper>
+      </Container>
     );
   }
 }
+
+export default connect(({ browser }) => ({ browser }))(Feed);
