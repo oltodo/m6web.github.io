@@ -19,6 +19,7 @@ const FeaturedImage = styled.div`
   margin: 0 auto ${GUTTER}px;
   max-width: 1280px;
   min-height: 300px;
+  z-index: 50;
 
   ${p => p.src && css`background-image: url(${p.src});`};
 
@@ -44,6 +45,7 @@ const Title = styled.h1`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  z-index: 51;
 
   ${({ theme }) => theme.media.md`
     font-size: ${p => (p.long ? 50 : 60)}px;
