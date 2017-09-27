@@ -8,7 +8,8 @@ import Container from "../components/Container";
 import Link from "../components/Link";
 import theme from "../theme";
 
-import "./styles";
+import "../styles/global.js";
+import "../styles/prism.js";
 
 const Footer = styled.div`
   margin-top: 100px;

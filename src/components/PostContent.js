@@ -9,10 +9,8 @@ import Link from "../components/Link";
 
 import highlight from "../utils/highlight";
 
-import "prismjs/themes/prism.css";
-
 /**
- * Cette fonction permet première de séparer les images du paragraph
+ * Cette fonction permet d'abord de séparer les images du paragraph
  * On aurait donc en sortie un tableau contenant des paragraphes et des images.
  * Cette fonction permet aussi de détecter la présence d'une légende.
  * C'est à dire, un bloc de texte qui suit l'image.

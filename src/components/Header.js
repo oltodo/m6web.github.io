@@ -58,8 +58,14 @@ const Edge = styled.div`
 
 const EdgeContent = Content.extend`
   height: ${HEADER_HEIGHT_SMALL}px !important;
+  transition: height 0s linear 0.3s;
 
-  ${p => p.sticky && css`height: ${HEADER_HEIGHT_STICKY}px !important;`};
+  ${p =>
+    p.sticky &&
+    css`
+      height: ${HEADER_HEIGHT_STICKY}px !important;
+      transition: height 0s;
+    `};
 `;
 
 const MenuHorizontal = styled.div`
