@@ -13,7 +13,7 @@ const visit = require(`unist-util-visit`);
 const toHAST = require(`mdast-util-to-hast`);
 const hastToHTML = require(`hast-util-to-html`);
 const Promise = require(`bluebird`);
-const prune = require(`underscore.string/prune`);
+// const prune = require(`underscore.string/prune`);
 
 let pluginsCacheStr = ``;
 const astCacheKey = node =>
